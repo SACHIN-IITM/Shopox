@@ -1,0 +1,69 @@
+<% layout("/layouts/boilerplate") -%>
+
+<style>
+    .row-cols-lg-3 .card {
+        margin: 1rem; 
+        border: none;
+        overflow: hidden;
+        position: relative;
+        border-radius: 15px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    }
+
+    .row-cols-lg-3 .card:hover {
+        transform: scale(1.05); 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+        border-radius: 15px 15px 0 0; 
+        object-fit: cover; 
+    }
+
+    .card-img-overlay {
+        background: rgba(0, 0, 0, 0.4); 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 15px; 
+    }
+
+    .card-body {
+        color: #fff; 
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem; 
+    }
+
+    .listing-link {
+        text-decoration: none; 
+        color: inherit; 
+    }
+</style>
+
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3  p-2">
+    <% for (let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>/api" class="listing-link">
+            <div class="card col listing-card" >
+                <div>
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;" >
+                </div>
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= listing.productName %></b> <br>
+                        &#8377; <%= listing.price %> /pc
+                    </p>
+                </div>
+            </div>
+        </a>
+        
+    <% } %>
+</div>

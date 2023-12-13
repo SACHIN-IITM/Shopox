@@ -1,0 +1,59 @@
+<style>
+    .container {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    nav {
+        height: 80px; 
+        background-color: #333; 
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    }
+
+    .logo a {
+        text-decoration: none;
+        color: whitesmoke;
+        font-size: 1.5rem; 
+        font-weight: bold;
+    }
+
+    .nav-elements {
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+    }
+
+    .nav-elements a {
+        text-decoration: none;
+        color: whitesmoke;
+        margin-right: 10px;
+        transition: color 0.3s; 
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-elements a:hover {
+        color: #ffcc00; 
+    }
+
+    .fa-plus,
+    .fa-barcode {
+        margin-right: 5px; 
+    }
+</style>
+
+<nav>
+    <div class="logo">
+        <a href="/listings"><h1>Made 2 Automate</h1></a>
+    </div>
+    <div class="nav-elements">
+        <a href="/listings/new"><i class="fas fa-plus"></i> Add Product</a>
+        <a href="/listings/scan"><i class="fas fa-barcode"></i> Scan Barcode</a>
+    </div>
+</nav>

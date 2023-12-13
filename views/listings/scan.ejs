@@ -1,0 +1,48 @@
+<% layout("/layouts/boilerplate") -%>
+<script src="https://cdn.rawgit.com/serratus/quaggaJS/0.12.1/dist/quagga.min.js"></script>
+
+
+<style>
+    h1{
+        text-align: center;
+        font-size: xxx-large;
+    }
+    #barcode-scanner{
+        padding: 4rem !important;
+    }
+</style>
+
+
+    <h1>Barcode Scanner</h1>
+    <div id="barcode-scanner"></div>
+
+    <script>
+        // Configure and start Quagga
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector("#barcode-scanner"),
+                constraints: {
+                    width: 480,
+                    height: 320,
+                    facingMode: "environment", // or "user" for front camera
+                },
+            },
+            decoder: {
+                readers: ["code_128_reader"],
+            },
+        }, function (err) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            Quagga.start();
+        });
+
+        // Register a callback for successful barcode scans
+        Quagga.onDetected(function (result) {
+            console.log("Barcode detected and read: " + result.codeResult.code);
+            // Handle the scanned barcode here, e.g., send it to the server, etc.
+        });
+    </script>

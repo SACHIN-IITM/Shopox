@@ -1,0 +1,63 @@
+<% layout("/layouts/boilerplate") -%>
+
+<style>
+    h3{
+        text-align: center;
+    }
+</style>
+
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+
+            <h3>Add New Product</h3>
+            <form method="POST" action="/listings" >
+                
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Product Name</label>
+                    <input name="listing[productName]" placeholder="Add Product Name here" type="text" class="form-control" required />
+                    <div class="valid-feedback">Name looks good!</div>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label for="productId" class="form-label">Product Id</label>
+                    <input name="listing[productId]" placeholder="Ex:- hafu08329u4r09uhf02408fh2" type="text" class="form-control"
+                        required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="manufacturerName" class="form-label">Manufacturer Name</label>
+                    <input name="listing[manufacturerName]" placeholder="Add Manufacturer Name here" type="text" class="form-control"
+                        required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Product Description</label>
+                    <textarea name="listing[productDescription]" placeholder="Enter description" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Please enter a short description.</div>
+                </div>
+
+                <div class="mb-3 col-md-4">
+                    <label for="productQuantity" class="form-label">Product Quantity</label>
+                    <input name="listing[productQuantity]" placeholder="3" type="number" min="1" class="form-control" required />
+                    <div class="invalid-feedback">Quantity must be greater than 1.</div>
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="image" class="form-label">Upload Product Image </label>
+                    <input name="listing[image]" type="file" class="form-control" />
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" placeholder="1200" type="number" class="form-control" required />
+                        <div class="invalid-feedback">Price should be valid.</div>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-dark add-btn mt-3">Add</button>
+            </form>
+        </div>
+
+    </div>
